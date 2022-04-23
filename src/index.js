@@ -1,17 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { faker } from '@faker-js/faker';
+const root = ReactDOM.createRoot(document.querySelector('#root'));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const profileAvatar = faker.image.avatar();
+
+const App = () => {
+    return (
+        <div className="ui container comments">
+            <div className="comment">
+                <a href="/" className="avatar">
+                    <img alt="avatar" src={profileAvatar}/>
+                </a>
+                <div className="content">
+                    <a href="/" className="author">
+                        Sam
+                    </a>
+                    <div className="metadata">
+                        <span className="date">Today at 6:00pm</span>
+                    </div>
+                    <div className="text">Nice blog post!</div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
